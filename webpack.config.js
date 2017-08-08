@@ -19,6 +19,14 @@ module.exports = {
         use: 'babel-loader',
         exclude: path.resolve(__dirname, 'node_modules/'),
       },
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          'css-loader',
+          'postcss-loader',
+        ],
+      },
     ],
   },
   resolve: {
