@@ -2,8 +2,8 @@ import products from './products.json';
 
 const INITIAL_STATE = {
   filters: [
-    { id: 'saleAscending', name: 'Sale Items' },
-    { id: 'exclusiveAscending', name: 'Exclusive Items' },
+    { id: 'saleDescending', name: 'Sale Items' },
+    { id: 'exclusiveDescending', name: 'Exclusive Items' },
     { id: 'priceAscending', name: 'Price (Lowest first)' },
     { id: 'priceDescending', name: 'Price (Highest first)' },
     { id: 'nameAscending', name: 'Name (A - Z)' },
