@@ -12,10 +12,10 @@ export const getSelectedFilter = ({ selectedFilter }) => selectedFilter;
 export const getFilteredProducts = ({ selectedFilter, products }) => {
   const sortedProducts = (() => {
     switch (selectedFilter) {
-      case 'saleAscending':
-        return orderBy(products, ['isSale'], ['asc']);
-      case 'exclusiveAscending':
-        return orderBy(products, ['isExclusive'], ['asc']);
+      case 'saleDescending':
+        return orderBy(products, ['isSale'], ['desc']);
+      case 'exclusiveDescending':
+        return orderBy(products, ['isExclusive'], ['desc']);
       case 'priceAscending':
         return orderBy(products, ['price'], ['asc']);
       case 'priceDescending':
