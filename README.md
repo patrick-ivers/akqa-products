@@ -5,12 +5,13 @@ The AKQA Products (Front-End Test) displays a list of products in a responsive g
 These products can be sorted by selecting a filter in the dropdown menu.
 
 ## Setup
- - Ensure [NPM](https://www.npmjs.com/) is installed
- - `cd` into the app directory on the command line
- - Install app dependencies with `npm install`
+ 1. Ensure [NPM](https://www.npmjs.com/) is installed (>= v4.0.0)
+ 1. `cd` into the app directory on the command line
+ 1. Install app dependencies with `npm install`
 
 ## Run
- - Once setup is complete, run the app from the root directory with `npm start`
+Once setup is complete, run the app from the root directory with `npm start`.
+If webpack fails to bundle the app, try running `npm rebuild node-sass`
 
 ## Build (optional)
- - You can also build the app into the `/public` directory by running `npm run build`
+You can also build the app into the `/public` directory by running `npm run build`
