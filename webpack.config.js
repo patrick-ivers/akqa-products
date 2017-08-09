@@ -1,5 +1,8 @@
 const path = require('path');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+const srcPath = path.join(__dirname, './src');
 
 module.exports = {
   entry: './src/index.jsx',
@@ -10,6 +13,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({ template: './src/index.ejs' }),
+    new CopyWebpackPlugin([{ from: './assets', to: './public/assets' }]),
   ],
   module: {
     rules: [
@@ -23,8 +27,24 @@ module.exports = {
         use: [
           'style-loader',
           'css-loader',
-          'postcss-loader',
         ],
+      },
+      {
+        test: /\.scss$/,
+        use: [
+          'style-loader',
+          'css-loader',
+          {
+            loader: 'sass-loader',
+            options: {
+              includePaths: [srcPath],
+            },
+          },
+        ],
+      },
+      {
+        test: /\.jpg$/,
+        use: 'file-loader',
       },
     ],
   },
@@ -32,7 +52,7 @@ module.exports = {
     extensions: ['.js', '.jsx'],
     modules: [
       path.resolve('./src'),
-      path.resolve('./node_modules')
+      path.resolve('./node_modules'),
     ],
   },
 };

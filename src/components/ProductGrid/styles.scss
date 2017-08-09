@@ -1,0 +1,10 @@
+@import 'variables.scss';
+
+.product-grid {
+  border: 1px solid $color-border;
+  border-right: 0;
+  border-bottom: 0;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 80px;
+}
