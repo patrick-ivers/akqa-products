@@ -46,6 +46,10 @@ module.exports = {
         test: /\.jpg$/,
         use: 'file-loader',
       },
+      {
+        test: /\.json$/,
+        use: 'json-loader',
+      },
     ],
   },
   resolve: {

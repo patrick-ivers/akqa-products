@@ -1,13 +1,13 @@
 import React from 'react';
-import Header from 'components/Header';
-import ProductGrid from 'components/ProductGrid';
+import HeaderContainer from 'components/Header/container';
+import ProductGridContainer from 'components/ProductGrid/container';
 import 'reset-css/reset.css';
 import './styles.scss';
 
 const App = () => (
   <div className="app">
-    <Header />
-    <ProductGrid />
+    <HeaderContainer />
+    <ProductGridContainer />
   </div>
 );
 
