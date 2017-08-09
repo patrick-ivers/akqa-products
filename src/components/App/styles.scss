@@ -1,0 +1,21 @@
+@import 'variables.scss';
+
+.app {
+  margin: 40px auto 0;
+
+  @media (min-width: $breakpoint-xl-min) {
+    width: 1320px;
+  }
+
+  @media (min-width: $breakpoint-lg-min) and (max-width: $breakpoint-lg-max) {
+    width: 960px;
+  }
+
+  @media (min-width: $breakpoint-md-min) and (max-width: $breakpoint-md-max) {
+    width: 520px;
+  }
+
+  @media (max-width: $breakpoint-sm-max) {
+    width: 100%;
+  }
+}
