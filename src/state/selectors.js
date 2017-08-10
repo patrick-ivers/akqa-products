@@ -9,23 +9,44 @@ export const getFilterOptions = ({ filters }) => (
 
 export const getSelectedFilter = ({ selectedFilter }) => selectedFilter;
 
-export const getFilteredProducts = ({ selectedFilter, products }) => {
-  const sortedProducts = (() => {
+export const getSortOptions = ({ sortList }) => (
+  sortList.map((sort) => ({
+    value: sort.id,
+    label: sort.name,
+  }))
+);
+
+export const getSelectedSort = ({ selectedSort }) => selectedSort;
+
+export const getProducts = ({
+  selectedFilter,
+  selectedSort,
+  products,
+}) => {
+  const filteredProducts = (() => {
     switch (selectedFilter) {
-      case 'saleDescending':
-        return orderBy(products, ['isSale'], ['desc']);
-      case 'exclusiveDescending':
-        return orderBy(products, ['isExclusive'], ['desc']);
-      case 'priceAscending':
-        return orderBy(products, ['price'], ['asc']);
-      case 'priceDescending':
-        return orderBy(products, ['price'], ['desc']);
-      case 'nameAscending':
-        return orderBy(products, ['productName'], ['asc']);
-      case 'nameDescending':
-        return orderBy(products, ['productName'], ['desc']);
+      case 'isOnSale':
+        return products.filter((product) => product.isSale);
+      case 'isExclusive':
+        return products.filter((product) => product.isExclusive);
+      case 'all':
       default:
         return products;
+    }
+  })();
+
+  const sortedProducts = (() => {
+    switch (selectedSort) {
+      case 'priceAscending':
+        return orderBy(filteredProducts, ['price'], ['asc']);
+      case 'priceDescending':
+        return orderBy(filteredProducts, ['price'], ['desc']);
+      case 'nameAscending':
+        return orderBy(filteredProducts, ['productName'], ['asc']);
+      case 'nameDescending':
+        return orderBy(filteredProducts, ['productName'], ['desc']);
+      default:
+        return filteredProducts;
     }
   })();
 

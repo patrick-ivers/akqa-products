@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
-import { getFilteredProducts } from 'state/selectors';
+import { getProducts } from 'state/selectors';
 import ProductGrid from '.';
 
 const mapStateToProps = (state) => ({
-  products: getFilteredProducts(state),
+  products: getProducts(state),
 });
 
 export default connect(mapStateToProps)(ProductGrid);
